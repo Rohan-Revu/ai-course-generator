@@ -9,14 +9,20 @@ import testRoutes from "./routes/testRoutes";
 
 const app = express();
 
+/**
+ * ✅ CORRECT CORS CONFIG FOR AUTH + CREDENTIALS
+ * - Dynamically echoes the Origin
+ * - Works with withCredentials = true
+ */
 app.use(
   cors({
     origin: (origin, callback) => {
+      // allow requests with no origin (Postman, mobile apps)
       if (!origin) return callback(null, true);
 
       const allowedOrigins = [
         "http://localhost:5173",
-        "https://ai-course-generator-rho.vercel.app",
+        "https://ai-course-generator-rho.vercel.app", // 👈 YOUR FRONTEND
       ];
 
       if (allowedOrigins.includes(origin)) {
@@ -34,12 +40,14 @@ app.use(
 app.options("*", cors());
 app.use(express.json());
 
+// ---------------- ROUTES ----------------
 app.use("/api/auth", authRoutes);
 app.use("/api/courses", courseRoutes);
 app.use("/api/progress", progressRoutes);
 app.use("/api/upload", uploadRoutes);
 app.use("/api/test", testRoutes);
 
+// ---------------- HEALTH CHECK ----------------
 app.get("/", (_req, res) => {
   res.json({ ok: true, message: "API running" });
 });
