@@ -36,7 +36,7 @@ const CreateCourse = () => {
     const form = new FormData();
     form.append("image", file);
 
-    const res = await api.post("/uploads", form, {
+    const res = await api.post("/upload", form, {
       headers: { "Content-Type": "multipart/form-data" },
     });
     return res.data.imageUrl;
