@@ -1,6 +1,5 @@
 import express from "express";
 import cors from "cors";
-import path from "path";
 import authRoutes from "./routes/authRoutes";
 import courseRoutes from "./routes/courseRoutes";
 import uploadRoutes from "./routes/uploadRoutes";
@@ -8,8 +7,22 @@ import progressRoutes from "./routes/progressRoutes";
 import testRoutes from "./routes/testRoutes";
 
 const app = express();
-app.use(cors());
+
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://ai-course-generator-rho.vercel.app/",
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+  })
+);
+
+app.options("*", cors());
 app.use(express.json());
+
 app.use("/api/auth", authRoutes);
 app.use("/api/courses", courseRoutes);
 app.use("/api/progress", progressRoutes);
