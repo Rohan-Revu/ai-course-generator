@@ -1,5 +1,5 @@
 import express from "express";
-import cors from "cors";
+import cors, { CorsOptions } from "cors";
 
 import authRoutes from "./routes/authRoutes";
 import courseRoutes from "./routes/courseRoutes";
@@ -10,34 +10,34 @@ import testRoutes from "./routes/testRoutes";
 const app = express();
 
 /**
- * ✅ CORRECT CORS CONFIG FOR AUTH + CREDENTIALS
- * - Dynamically echoes the Origin
- * - Works with withCredentials = true
+ * ✅ TYPE-SAFE CORS CONFIG (NO TS ERRORS)
  */
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      if (!origin) return callback(null, true);
+const corsOptions: CorsOptions = {
+  origin: (
+    origin: string | undefined,
+    callback: (err: Error | null, allow?: boolean) => void,
+  ) => {
+    // Allow Postman, server-to-server
+    if (!origin) return callback(null, true);
 
-      const allowedOrigins = [
-        "http://localhost:5173",
-        "https://ai-course-generator-pro.vercel.app",
-      ];
+    const allowedOrigins = [
+      "http://localhost:5173",
+      "https://ai-course-generator-rho.vercel.app",
+    ];
 
-      if (allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  }),
-);
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+};
 
-// ✅ handle preflight properly
-app.options("*", cors());
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
 
 app.use(express.json());
 
