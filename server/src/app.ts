@@ -17,12 +17,11 @@ const app = express();
 app.use(
   cors({
     origin: (origin, callback) => {
-      // allow requests with no origin (Postman, mobile apps)
       if (!origin) return callback(null, true);
 
       const allowedOrigins = [
         "http://localhost:5173",
-        "https://ai-course-generator-rho.vercel.app", // 👈 YOUR FRONTEND
+        "https://ai-course-generator-pro.vercel.app",
       ];
 
       if (allowedOrigins.includes(origin)) {
@@ -32,12 +31,14 @@ app.use(
       }
     },
     credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
-  })
+  }),
 );
 
+// ✅ handle preflight properly
 app.options("*", cors());
+
 app.use(express.json());
 
 // ---------------- ROUTES ----------------
