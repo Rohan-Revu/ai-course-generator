@@ -15,7 +15,7 @@ Learnify is a full-stack AI-powered learning platform that generates personalize
 ## Demo
 
 <p align="center">
-  <img src="assets/Learnify.gif" alt="CPP Shell Demo" width="900">
+  <img src="client/src/assets/Learnify.gif" alt="CPP Shell Demo" width="900">
 </p>
 
 ## Features
