@@ -10,7 +10,7 @@ import testRoutes from "./routes/testRoutes";
 const app = express();
 
 /**
- * ✅ TYPE-SAFE CORS CONFIG (NO TS ERRORS)
+ *  TYPE-SAFE CORS CONFIG (NO TS ERRORS)
  */
 const corsOptions: CorsOptions = {
   origin: (

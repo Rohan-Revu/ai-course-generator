@@ -1,61 +1,49 @@
-# 📚 Learnify - AI Course Generator
+# Learnify - AI Course Generator
 
 Learnify is a full-stack AI-powered learning platform that generates personalized courses based on user interests. Users can create structured learning paths, track progress, upload course thumbnails, and access curated YouTube resources—all powered by Google's Gemini AI.
 
 ---
 
-## 🌐 Live Demo
+## Live Link
 
 **Frontend:** https://ai-course-generator-rho.vercel.app
 
 > **Note:** The backend is hosted on Render. If the application has been inactive for a while, the first request may take 30–60 seconds while the server wakes up.
 
+---
 
+## Demo
 
-## 🚀 Features
+<p align="center">
+  <img src="assets/Learnify.gif" alt="CPP Shell Demo" width="900">
+</p>
 
-- 🤖 AI-generated personalized courses using Google Gemini API
-- 🔐 Secure user authentication with JWT
-- 📖 Structured modules and lessons
-- ✅ Track lesson completion and learning progress
-- 🖼️ Upload custom course thumbnails with Cloudinary
-- 🎥 Curated YouTube learning resources
-- 📊 Interactive dashboard to manage courses
-- 🗑️ Create and delete courses
-- 📱 Responsive modern UI
+## Features
+
+- AI-generated personalized courses using Google Gemini API
+- Secure user authentication with JWT
+- Structured modules and lessons
+- Track lesson completion and learning progress
+- Upload custom course thumbnails with Cloudinary
+- Curated YouTube learning resources
+- Interactive dashboard to manage courses
+- Create and delete courses
+- Responsive modern UI
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
-### Frontend
-- React
-- TypeScript
-- Vite
-- Tailwind CSS
-- React Router
-- ShadCN UI
-- Axios
-
-### Backend
-- Node.js
-- Express.js
-- TypeScript
-- JWT Authentication
-- Multer
-
-### Database
-- MongoDB Atlas
-- Mongoose
-
-### External APIs
-- Google Gemini API
-- YouTube Data API
-- Cloudinary
+| Category          | Technologies                                                          |
+| ----------------- | --------------------------------------------------------------------- |
+| **Frontend**      | React, TypeScript, Vite, Tailwind CSS, React Router, ShadCN UI, Axios |
+| **Backend**       | Node.js, Express.js, TypeScript, JWT Authentication, Multer           |
+| **Database**      | MongoDB Atlas, Mongoose                                               |
+| **External APIs** | Google Gemini API, YouTube Data API, Cloudinary                       |
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 Learnify/
@@ -80,7 +68,7 @@ Learnify/
 
 ---
 
-## ⚙️ Installation
+## Installation
 
 ### Clone the Repository
 
@@ -109,7 +97,7 @@ npm install
 
 ---
 
-## 🔑 Environment Variables
+## Environment Variables
 
 Create a `.env` file inside the **server** directory.
 
@@ -133,7 +121,7 @@ CLOUDINARY_API_SECRET=your_api_secret
 
 ---
 
-## ▶️ Run Locally
+## Run Locally
 
 ### Start Backend
 
@@ -156,35 +144,3 @@ Frontend : http://localhost:5173
 
 Backend  : http://localhost:5000
 ```
-
----
-
-## 📸 Screenshots
-
-### Landing Page
-
-<img width="1901" height="873" alt="Screenshot 2026-07-11 134213" src="https://github.com/user-attachments/assets/ea426733-041b-4af8-a497-c7396bc8ebb9" />
-
-
----
-
-### Dashboard
-
-<img width="1918" height="875" alt="Screenshot 2026-07-11 134241" src="https://github.com/user-attachments/assets/c5e59832-1e41-4228-a885-e38503c7aba0" />
-
-
----
-
-### Course Detail
-
-<img width="1900" height="873" alt="Screenshot 2026-07-11 134305" src="https://github.com/user-attachments/assets/dfdabb52-3494-4d1c-8abe-7f91a6b916da" />
-
-
----
-
-### Create Course
-
-<img width="1898" height="871" alt="Screenshot 2026-07-11 134331" src="https://github.com/user-attachments/assets/4965ffce-9581-495a-a899-961bb1988f7f" />
-
-
----
